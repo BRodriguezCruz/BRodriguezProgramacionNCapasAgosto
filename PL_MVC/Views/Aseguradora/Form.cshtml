@@ -1,0 +1,43 @@
+﻿@model ML.Aseguradora
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">AGREGAR ASEGURADORA</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Agregue datos de la Aseguradora</h4>
+        </div>
+    </div>
+    <br />
+
+    @using (Html.BeginForm("Form", "Aseguradora", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.HiddenFor(model => model.IdAseguradora)
+
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Nombre)
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Usuario.IdUsuario)
+                @Html.DropDownListFor(model => model.Usuario.IdUsuario, new SelectList(Model.Usuario.Usuarios, "IdUsuario", "Nombre"), "SELECCIONA USUARIO", new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+        <hr />
+        <button id="btnAdd" class="btn btn-success ">  <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>HECHO</button>
+   // <i class="fa-solid fa-floppy-disk fa-2xl" style="margin-right:2rem"></i>
+
+    }
+
+</div>
+

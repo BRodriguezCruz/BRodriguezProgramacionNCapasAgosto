@@ -1,0 +1,63 @@
+﻿@model ML.Empleado
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align: center">LISTA GENERAL DE EMPLEADOS</h2>
+<link rel="stylesheet" type="text/css" href="~/Content/Styles/DependienteCard.css" />
+<br />
+
+<div class="container">
+    @using (Html.BeginForm("GetAll", "Empleado", FormMethod.Post, new { enctype = "multipart / form - data" }))
+    {
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Empresa.IdEmpresa)
+                @Html.DropDownListFor(model => model.Empresa.IdEmpresa, new SelectList(Model.Empresa.Empresas, "IdEmpresa", "Nombre"), "SELECCIONA EMPRESA", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Nombre)
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="col-md-2 text-left">
+                <button class=" btn btn-outline-secondary m-lg-auto" type="submit"> BUSCAR</button>
+            </div>
+        </div>
+    }
+</div>
+<hr />
+
+<div class="row">
+    @foreach (ML.Empleado empleado in Model.Empleados)
+    {
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="data:image/*;base64,@empleado.Foto" alt="Avatar" style="width:270px;height:198px;">
+                </div>
+                <div class="flip-card-back">
+                    <h4 class="align-text: text-center">@empleado.Nombre</h4>
+                    <h4>@empleado.ApellidoPaterno</h4>
+                    <h5>@empleado.Empresa.Nombre</h5>
+                    <p>ID: @empleado.IdEmpleado</p>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <a class="btn btm-danger"  href="@Url.Action("Delete", "Empleado", new {idRecuperado = empleado.IdEmpleado})" onclick=" return confirm ('¿Seguro que quieres eliminar el registro?')">Eliminar</a>
+                        <a class="btn btn-warning" href="@Url.Action("GetDependiente", "Dependiente", new {idEmpleado = empleado.IdEmpleado})">Dependientes</a>
+                        <a class="btn btn-success" href="@Url.Action("Form", "Empleado", new {idEmpleado = empleado.IdEmpleado})">Actualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<br>
+<div class="row w-100 align-items-center">
+    <div class="col text-center">
+        <a href="@Url.Action("Form", "Empleado")" type="button" class="btn btn-outline-primary regular-button"> AÑADIR NUEVO EMPLEADO </a>
+    </div>
+</div>

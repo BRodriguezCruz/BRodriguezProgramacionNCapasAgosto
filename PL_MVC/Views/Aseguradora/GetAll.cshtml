@@ -1,0 +1,55 @@
+﻿@model ML.Aseguradora
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+@Scripts.Render("~/bundles/jquery")
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+
+<h1 class="text-center"> LISTA GENERAL EN ASEGURADORA</h1>
+<br />
+
+<div class="table-responsive">
+    <table class="table table-light table-striped-columns" id="IdTabla">
+        <thead>
+            <tr>
+                <th scope="col">EDITAR</th>
+                <th scope="col">IdAseguradora</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha de Creacion</th>
+                <th scope="col">Fecha de Modificacion</th>
+                <th scope="col">Id del Usuario</th>
+                <th scope="col">ELIMINAR </th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach (ML.Aseguradora registro in Model.Aseguradoras)
+            {
+                <tr>
+                    <td> <a href="@Url.Action("Form", "Aseguradora", new {idAseguradora = registro.IdAseguradora})"> <i class="fa-solid fa-wand-magic-sparkles" style="color: #c7c926;"></i> </a> </td>
+                    <td>@registro.IdAseguradora</td>
+                    <td>@registro.Nombre</td>
+                    <td>@registro.FechaCreacion</td>
+                    <td>@registro.FechaModificacion</td>
+                    <td>@registro.Usuario.Nombre</td>
+                    <td> <a href="@Url.Action("Delete","Aseguradora", new {idRecuperado = registro.IdAseguradora})" onclick=" return confirm('¿Seguro que quieres elimiar el registro?')"> <i class="fa-solid fa-trash-can fa-beat" style="color: #962727;"></i> </a> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a href="@Url.Action("Form", "Aseguradora")" type="button" class="btn btn-outline-success" style="margin-left"> AÑADIR NUEVA ASEGURADORA </a>
+
+<script type="text/javascript">
+    let table = new DataTable('#IdTabla', {
+        reponsive: true,
+        "lengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+        searching: false,
+        language: {
+            url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json",
+        },
+    });
+</script>

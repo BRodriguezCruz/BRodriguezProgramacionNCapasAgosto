@@ -1,0 +1,5 @@
+Nombre|ApellidoPaterno|ApellidoMaterno|FechaNacimiento|Telefono|Sexo|IdRol|UserName|Email|Password|Celular|Curp|Imagen|Calle|NumeroInterior|NumeroExterior|IdColonia
+Ivan|Beto|Perez|12-04-1990|55432133|H|2|Ivi|bet2@live.com|yo324|553482192|BEPI998822HFGTRE|null|Calle 2| 34 |345| 2
+Luis|Bastida|Hernandez|11-09-2000|56984322|H|5|Lemi|luH@gmail.com|yoese87|55344322777|BAHL229933DFRT43|null|1
+Alondra|Meneses|Sanchez|09-09-1999|554321833|M|1|Hiba-tan|Nalo@gmail.com|oni232|5534811111|MESA990707MCDTTS2|null|1
+Alexis|Baeza|Carmona|02-01-2016|55432133808|H|4|alets|alex@gmail.com|week23|5534878787|BACA160201HCDOOF4|null|1

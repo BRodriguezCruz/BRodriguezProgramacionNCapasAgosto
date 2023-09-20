@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0449de1d81c54878984f05d48a9f073e" Name="Diagram1">
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Rol" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Usuario" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.IdRol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Colonia" Width="1.5" PointX="8.625" PointY="4" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Direccion" Width="1.5" PointX="5.5" PointY="3.875" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Estado" Width="1.5" PointX="10.625" PointY="0.875" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Municipio" Width="1.5" PointX="11.75" PointY="3.875" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Pai" Width="1.5" PointX="7.25" PointY="1.25" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.FK__Colonia__IdMunic__44FF419A" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.FK__Direccion__IdCol__47DBAE45" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.FK__Direccion__IdUsu__48CFD27E" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.FK__Estado__IdPais__3F466844" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.FK__Municipio__IdEst__4222D4EF" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Aseguradora" Width="1.5" PointX="1.75" PointY="6.875" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.FK__Asegurado__IdUsu__52593CB8" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Empleado" Width="1.5" PointX="6.625" PointY="8" />
+        <EntityTypeShape EntityType="BRodriguezProgramacionNCapasAgostoModel.Empresa" Width="1.5" PointX="4.375" PointY="8.875" />
+        <AssociationConnector Association="BRodriguezProgramacionNCapasAgostoModel.FK__Empleado__IdEmpr__76969D2E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,187 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+@Scripts.Render("~/bundles/jquery")
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+<h1 style="text-align:center"> LISTA DE USUARIOS </h1>
+<br />
+
+<div class="container">
+    @using (Html.BeginForm("GetAll", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Nombre)
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.ApellidoPaterno)
+                @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="col-md-2 text-left">
+                <button class=" btn btn-outline-secondary m-lg-auto" type="submit"> BUSCAR</button>
+            </div>
+        </div>
+    }
+</div>
+
+<br />
+<div class="table-responsive">
+    <table class="table table-hover table-bordered table-secondary" id="IdTabla">
+        <!--INDICA QUE ES UNA TABLA-->
+        <thead class="table-light">
+            <!--encabezado-->
+            <tr>
+                <!--filas-->
+                <th>Id Usuario</th>
+                <th>Activo/Inactivo</th>
+                <th>Imagen Perfil</th>
+                <th>Nombre</th>
+                <th>Username</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Sexo</th>
+                <th>Telefono</th>
+                <th>EMAIL</th>
+                <th>Password</th>
+                <th>CURP</th>
+                <th>Celular</th>
+                <th>Rol desempeñado</th>
+
+                <th>ID Direccion</th>
+                <th>Calle</th>
+                <th>Numero Interior</th>
+                <th>Numero Exterior</th>
+                <th>ID Colonia</th>
+                <th>Colonia</th>
+                <th>Codigo Postal</th>
+                <th>ID Municipio</th>
+                <th>Municipio</th>
+                <th>ID Estado</th>
+                <th>Estado</th>
+                <th>ID Pais</th>
+                <th>Pais</th>
+                <th>EDITAR</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--CUERPO DE LA UNA TABLA-->
+            @foreach (ML.Usuario usuario in Model.Usuarios)
+            {<!--no es neceario utilizar "usuario" en el foreach, puede ser cualquier otra palabra-->
+                <tr>
+                    <td> @usuario.IdUsuario </td>
+                    @if (usuario.Status)
+                    {
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked onchange="ChangeStatus(@usuario.IdUsuario, this)">
+                            </div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="ChangeStatus(@usuario.IdUsuario, this)">
+                            </div>
+                        </td>
+
+                    }
+
+                    <td>
+                        @if (usuario.Imagen == null || usuario.Imagen == " ")
+                        {
+                            if (usuario.Sexo == "M")
+                            {
+                                <img src="https://st2.depositphotos.com/9998432/48297/v/450/depositphotos_482974564-stock-illustration-default-avatar-photo-placeholder-grey.jpg" width="70" height="70" />
+                            }
+                            else
+                            {
+                                <img src="https://srcwap.com/wp-content/uploads/2022/08/no-avatar.webp" width="70" height="70" class="rounded-circle" />
+                            }
+                        }
+                        else
+                        {
+                            <img src="data:image/*;base64,@usuario.Imagen" width="70" height="70" class="rounded-circle" />//CONVIERTE LA IMAGEN DE BASE 64 (TEXTO PLANO) A IMAGEN
+                        }
+                    </td>
+                    <td> @usuario.Nombre </td>
+                    <td> @usuario.UserName </td>
+                    <td> @usuario.ApellidoPaterno </td>
+                    <td> @usuario.ApellidoMaterno </td>
+                    <td> @usuario.FechaNacimiento </td>
+                    <td> @usuario.Sexo </td>
+                    <td> @usuario.Telefono </td>
+                    <td> @usuario.Email </td>
+                    <td> @usuario.Password </td>
+                    <td> @usuario.Curp </td>
+                    <td> @usuario.Celular </td>
+                    @if (usuario.Rol.Nombre == "Gerente")
+                    {
+                        <td style="color: #EA721A"> @usuario.Rol.Nombre</td>
+                    }
+                    else
+                    {
+                        <td style="color: #3C2C20"> @usuario.Rol.Nombre</td>
+                    }
+                    <td> @usuario.Direccion.IdDireccion</td>
+                    <td> @usuario.Direccion.Calle</td>
+                    <td> @usuario.Direccion.NumeroInterior</td>
+                    <td> @usuario.Direccion.NumeroExterior</td>
+                    <td> @usuario.Direccion.Colonia.IdColonia</td>
+                    <td> @usuario.Direccion.Colonia.Nombre</td>
+                    <td> @usuario.Direccion.Colonia.CodigoPostal</td>
+                    <td> @usuario.Direccion.Colonia.Municipio.IdMunicipio</td>
+                    <td> @usuario.Direccion.Colonia.Municipio.Nombre</td>
+                    <td> @usuario.Direccion.Colonia.Municipio.Estado.IdEstado</td>
+                    <td> @usuario.Direccion.Colonia.Municipio.Estado.Nombre</td>
+                    <td> @usuario.Direccion.Colonia.Municipio.Estado.Pais.IdPais</td>
+                    <td> @usuario.Direccion.Colonia.Municipio.Estado.Pais.Nombre</td>
+
+                    <td><a href="@Url.Action("Form", "Usuario", new {idUsuario = usuario.IdUsuario})"> <i class="fa-solid fa-wand-magic-sparkles" style="color: #c7c926;"></i></a> </td>
+                    <td><a href="@Url.Action("Delete", "Usuario", new { idRecuperado = usuario.IdUsuario })" onclick="return confirm('¿Seguro que quieres eliminar el registro?');"> <i class="fa-solid fa-trash-can fa-beat" style="color: #962727;"></i></a> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<hr />
+<div class="text-right ">
+    <a href="@Url.Action("Form", "Usuario")" <button type="button" class="btn btn-outline-success"> AÑADIR NUEVO USUARIO </button></a>
+</div>
+
+
+<script type="text/javascript">
+    let table = new DataTable('#IdTabla', {
+        reponsive: true,
+        "lengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+        searching: false,
+        language: {
+            url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json",
+        },
+    });
+
+    function ChangeStatus(idUsuario, e) {
+        var status = e.checked
+
+        $.ajax({
+            url: '@Url.Action("ChangeStatus")',
+            data: { IdUsuario: idUsuario, Status : status },
+            type: 'POST',
+            dataType : 'json',
+            success: { },
+            error: {
+                //alert('Ocurrio un error')
+            }
+        })
+    }
+</script>

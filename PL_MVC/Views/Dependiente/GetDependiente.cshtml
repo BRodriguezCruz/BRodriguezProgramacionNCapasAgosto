@@ -1,0 +1,63 @@
+﻿@model ML.Dependiente
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dependientes</h2>
+@if (Model.Dependientes.Count != 0)
+{
+    <div class="table-responsive">
+        <table class="table  table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"> EDITAR </th>
+                    <th> Codigo Dependiente</th>
+                    <th> Nombre</th>
+                    <th> Apellido Paterno</th>
+                    <th> Apellido Materno</th>
+                    <th> Fecha de Nacimiento</th>
+                    <th> Genero </th>
+                    <th> Telefono</th>
+                    <th> Estado Civil</th>
+                    <th> RFC </th>
+                    <th> Codigo Empleado</th>
+                    <th> ELIMINAR </th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @foreach (ML.Dependiente dependiente in Model.Dependientes)
+                {
+                    <tr>
+                        <td> <a href="@Url.Action("Form", "Dependiente", new { idDependiente = dependiente.IdDependiente })"> <i class="fa-solid fa-wand-magic-sparkles" style="color: #c7c926;"></i> </a> </td>
+                        <td> @dependiente.IdDependiente</td>
+                        <td> @dependiente.Nombre</td>
+                        <td> @dependiente.ApellidoPaterno</td>
+                        <td> @dependiente.ApellidoMaterno</td>
+                        <td> @dependiente.FechaNacimiento</td>
+                        <td> @dependiente.Genero</td>
+                        <td> @dependiente.Telefono</td>
+                        <td> @dependiente.EstadoCivil</td>
+                        <td> @dependiente.Rfc</td>
+                        <td> @dependiente.Empleado.IdEmpleado</td>
+                        <td> <a href="@Url.Action("Delete", "Dependiente", new { idRecuperado = dependiente.IdDependiente })" onclick=" return confirm ('¿Seguro que quieres eliminar el registro?')"> <i class="fa-solid fa-trash-can fa-beat" style="color: #962727;"></i>  </a> </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <br>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        NO HAY DEPENDIENTES DE ESTE EMPLEADO
+    </div>
+}
+<div class="row w-100 align-items-center">
+    <div class="col text-center">
+        <a class="btn btn-outline-primary regular-button" href="@Url.Action("Form", "Dependiente")"> AGREGAR DEPENDIENTE</a>
+        <a class=" btn btn-outline-warning" id="btnBack" href="@Url.Action("GetAll", "Empleado")">VOLVER</a>
+    </div>
+</div>
+

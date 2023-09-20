@@ -1,0 +1,38 @@
+﻿@model ML.Usuario 
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    @Scripts.Render("~/bundles/jquery")
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles/Login.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <!--NOMBRE DEL METODO, NOMBRE DEL CONTROLADOR (todo dentro del beginForm, indica que es parte de un formulario para ese metodo y controlador)-->
+        @using (Html.BeginForm("Login", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="login">
+                <p class="title">Inicio de Sesion</p>
+                <!-- <input type="text" placeholder="Username" autofocus />-->
+                @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control", @type = "text", @placeHolder = "Username" })
+                <i class="fa fa-user"></i>
+                <input type="password" placeholder="Password" name="passwordName" /> <!--el "name" debe ser el mismo que en el parametro del controlador (se puede asi, o con un htmlheper como con EMAIL)-->
+                <i class="fa fa-key"></i>
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button type="submit">
+                    <i class="spinner"></i>
+                    <span class="state">Log in</span>
+                </button>            
+            </form>
+        }
+            <footer><a target="blank" href="@Url.Action("Login","Usuario")">.NET APLICATION</a></footer>
+        </div>
+        <script type="text/javascript" src="~/Content/Scripts/Login.js"></script>
+    </body>
+
+</html>
+

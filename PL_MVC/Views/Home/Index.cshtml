@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <h1 class="text-lg-center" style="font-family:cursive">BIENVENIDO</h1>
+    <!-- Carousel wrapper -->
+    <div id="carouselMultiItemExample"
+         class="carousel slide carousel-dark text-center"
+         data-mdb-ride="carousel">
+        <!-- Controls -->
+        <!--  <div class="d-flex justify-content-center mb-4">
+        <button class="carousel-control-prev position-relative"
+                type="button"
+                data-mdb-target="#carouselMultiItemExample"
+                data-mdb-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next position-relative"
+                type="button"
+                data-mdb-target="#carouselMultiItemExample"
+                data-mdb-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div> -->
+        <!-- Inner -->
+        <div class="carousel-inner py-4">
+            <!-- Single item -->
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <img src="https://imgs.search.brave.com/aOXVrGph_khKgL-1gq7HUBMbbvqKQ8SPOcZQ_nESD1s/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9lY29u/b21pdGVjYS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTUv/MTIvc2VndXJvcy5q/cGc"
+                                     class="card-img-top"
+                                     alt="Waterfall" height="300" />
+                                <div class="card-body">
+                                    <h5 class="card-title">ASEGURADORAS</h5>
+                                    <p class="card-text">
+                                        Encargadas de asegurar riesgos a terceros, de tal manera que protegen y/o resguarda los
+                                        bienes materiales de los riesgos a los que estos están expuestos.
+                                    </p>
+                                    <a href="@Url.Action("GetAll", "Aseguradora")" class="btn btn-outline-warning">Button</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="card">
+                                <img src="https://imgs.search.brave.com/N2IRwxQ5cYGMjkKQn3KqK-tKryd0Dlrdn-IMOt5DF1I/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/eHBsb3JhLmV1L3dw/LWNvbnRlbnQvdXBs/b2Fkcy9tb2JpbGUt/Zmlyc3QuanBn"
+                                     class="card-img-top"
+                                     alt="Sunset Over the Sea" height="300" />
+                                <div class="card-body">
+                                    <h5 class="card-title">USUARIOS</h5>
+                                    <p class="card-text">
+                                        Parte dedicada a la obtencion, organizacion y resgurado de los datos personales de los clietes registrados en el sistema.
+                                    </p>
+                                    <a href="@Url.Action("GetAll", "Usuario")" class="btn btn-outline-warning">Button</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+                          <div class="col-lg-4 d-none d-lg-block">
+                              <div class="card">
+                                  <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp"
+                                       class="card-img-top"
+                                       alt="Sunset over the Sea" />
+                                  <div class="card-body">
+                                      <h5 class="card-title">Card title</h5>
+                                      <p class="card-text">
+                                          Some quick example text to build on the card title and make up the bulk
+                                          of the card's content.
+                                      </p>
+                                      <a href="#!" class="btn btn-primary">Button</a>
+                                  </div>
+                              </div>
+                          </div>
+                          -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single item -->
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                                     class="card-img-top"
+                                     alt="Fissure in Sandstone" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">
+                                        Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.
+                                    </p>
+                                    <a href="#!" class="btn btn-primary">Button</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="card">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/185.webp"
+                                     class="card-img-top"
+                                     alt="Storm Clouds" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">
+                                        Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.
+                                    </p>
+                                    <a href="#!" class="btn btn-primary">Button</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 d-none d-lg-block">
+                            <div class="card">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/186.webp"
+                                     class="card-img-top"
+                                     alt="Hot Air Balloons" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">
+                                        Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.
+                                    </p>
+                                    <a href="#!" class="btn btn-primary">Button</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single item -->
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                            <div class="card">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/187.webp"
+                                     class="card-img-top"
+                                     alt="Peaks Against the Starry Sky" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">
+                                        Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.
+                                    </p>
+                                    <a href="#!" class="btn btn-primary">Button</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
+                            <div class="card">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/188.webp"
+                                     class="card-img-top"
+                                     alt="Bridge Over Water" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">
+                                        Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.
+                                    </p>
+                                    <a href="#!" class="btn btn-primary">Button</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
+                            <div class="card">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/189.webp"
+                                     class="card-img-top"
+                                     alt="Purbeck Heritage Coast" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">
+                                        Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.
+                                    </p>
+                                    <a href="#!" class="btn btn-primary">Button</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Inner -->
+    </div>
+    <!-- Carousel wrapper -->
+</main>
