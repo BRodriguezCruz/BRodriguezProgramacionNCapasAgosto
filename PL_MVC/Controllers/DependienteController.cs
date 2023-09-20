@@ -16,10 +16,12 @@ namespace PL_MVC.Controllers
 
             if (result.Correct)
             {
+                ViewBag.idEmpleado = idRecuperado;
                 ViewBag.Message = "REGISTRO ELIMINADO EXITOSAMENTE";
             }
             else
             {
+                ViewBag.idEmpleado = idRecuperado;
                 ViewBag.Message = "FALLO AL ELIMINAR, REGISTRO NO ELIMINADO";
             }
 
@@ -64,7 +66,6 @@ namespace PL_MVC.Controllers
         [HttpPost]
         public ActionResult Form(ML.Dependiente dependiente)
         {
-
             if(dependiente.IdDependiente == 0)
             {
                 dependiente.Empleado.IdEmpleado = (string)Session["idEmpleado"];
@@ -73,11 +74,13 @@ namespace PL_MVC.Controllers
 
                 if (result.Correct)
                 {
+                    ViewBag.idEmpleado = (string)Session["idEmpleado"];
                     ViewBag.Message = "REGISTRO AGREGADO CON EXITO";
                     Session["idEmpleado"] = null;
                 }
                 else
                 {
+                    ViewBag.idEmpleado = (string)Session["idEmpleado"];
                     ViewBag.Message = "ERROR, REGISTRO NO AGREGADO";
                     Session["idEmpleado"] = null;
                 }
@@ -88,18 +91,19 @@ namespace PL_MVC.Controllers
 
                 if (result.Correct)
                 {
+                    ViewBag.idEmpleado = (string)Session["idEmpleado"];
                     ViewBag.Message = "REGISTRO ACTUALIZADO CON EXITO";
                     Session["idEmpleado"] = null;
                 }
                 else
                 {
+                    ViewBag.idEmpleado = (string)Session["idEmpleado"];
                     ViewBag.Message = "ERROR, REGISTRO NO ACTUALIZADO";
                     Session["idEmpleado"] = null;
                 }
             }
-
-            return RedirectToAction("GetDependiente", "Dependiente");
-            //return PartialView("Modal");
+            //return RedirectToAction("GetDependiente", "Dependiente", new {idEmpleado = dependiente.Empleado.IdEmpleado});
+            return PartialView("Modal");
         }
 
     }

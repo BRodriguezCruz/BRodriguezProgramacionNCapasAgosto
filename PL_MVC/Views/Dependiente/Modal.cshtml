@@ -19,7 +19,7 @@
             <div class="modal-footer">
                 @*@Html.ActionLink("Regresar", "GetAll", "Materia", htmlAttributes: new { @class = "btn btn-danger" })*@
 
-                @Html.ActionLink("Vale", "GetDependiente", "Dependiente", htmlAttributes: new { @class = "btn btn-danger" })
+                <a href="@Url.Action("GetDependiente", "Dependiente", new { idEmpleado = ViewBag.idEmpleado})" class="btn btn-success"> Vale </a>
 
             </div>
         </div>
