@@ -9,7 +9,7 @@ namespace BL
 {
     public class Aseguradora
     {
-        public static ML.Result AseguradoraAddEF(ML.Aseguradora aseguradora)
+        public static ML.Result AddEF(ML.Aseguradora aseguradora)
         {
             ML.Result result = new ML.Result();
             try
@@ -38,7 +38,7 @@ namespace BL
             return result;
         }
 
-        public static ML.Result AseguradoraUpdate(ML.Aseguradora aseguradora)
+        public static ML.Result UpdateEF(ML.Aseguradora aseguradora)
         {
             ML.Result result = new ML.Result();
 
@@ -67,7 +67,7 @@ namespace BL
             return result;
         }
 
-        public static ML.Result AseguradoraDelete(int idAseguradora)
+        public static ML.Result DeleteEF(int idAseguradora)
         {
             ML.Result result= new ML.Result();
             try
@@ -95,7 +95,7 @@ namespace BL
             return result;
         }
 
-        public static ML.Result AseguradoraGetAll() 
+        public static ML.Result GetAll() 
         { 
             ML.Result result = new ML.Result();
 
@@ -140,7 +140,7 @@ namespace BL
             return result;       
         }
 
-        public static ML.Result AseguradoraGetById(int idAseguradora)
+        public static ML.Result GetById(int idAseguradora)
         {
             ML.Result result = new ML.Result();
 

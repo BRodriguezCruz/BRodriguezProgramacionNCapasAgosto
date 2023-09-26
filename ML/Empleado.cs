@@ -14,7 +14,7 @@ namespace ML
         public string ApellidoPaterno { get; set; }
         public string ApellidoMaterno { get; set; }
         public string Email { get; set; }
-        public string Telefono  { get; set; }
+        public string Telefono { get; set; }
         public DateTime? FechaNacimiento { get; set; }
         public string NSS { get; set; }
         public DateTime? FechaIngreso { get; set; }
@@ -29,8 +29,5 @@ namespace ML
 
         //Propiedad para validar el ID string de empleado
         public string Bandera { get; set; }
-
-
-
     }
 }

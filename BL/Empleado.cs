@@ -8,7 +8,7 @@ namespace BL
 {
     public class Empleado
     {
-        public static ML.Result GetAllEF(ML.Empleado empleadoBusqueda) 
+        public static ML.Result GetAllEF(ML.Empleado empleadoBusqueda)// (int idEmpresa, string nombre) 
         { 
             ML.Result result = new ML.Result();
 
@@ -16,7 +16,8 @@ namespace BL
             {
                 using (DLEF.BRodriguezProgramacionNCapasAgostoEntities context = new DLEF.BRodriguezProgramacionNCapasAgostoEntities())
                 {
-                    var query = context.EmpleadoGetAll(empleadoBusqueda.Empresa.IdEmpresa, empleadoBusqueda.Nombre).ToList();
+                    var query = context.EmpleadoGetAll(empleadoBusqueda.Empresa.IdEmpresa, empleadoBusqueda.Nombre);
+                    //var query = context.EmpleadoGetAll(idEmpresa, nombre).ToList();
 
                     result.Objects = new List<object>();
 
