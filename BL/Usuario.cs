@@ -467,7 +467,7 @@ namespace BL
             {
                 using (SqlConnection context = new SqlConnection(DL.Conexion.GetConnectionString()))
                 {
-                    string query = "UsuarioGetAll";
+                    string query = "UsuarioGetAll"; //nombre del SP 
 
                     SqlCommand cmd = new SqlCommand(query, context);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -482,6 +482,7 @@ namespace BL
                         foreach (DataRow row in tablaUsuario.Rows)
                         {
                             ML.Usuario usuario = new ML.Usuario(); //Se declara aqui pues en el metodo no se hizo como parametro
+
                             usuario.IdUsuario = int.Parse(row[0].ToString());
                             usuario.Nombre = row[1].ToString(); // Ingresamos a la prop Nombre a traves de usuario y le asignamos el primer valor del recorrido
                             usuario.ApellidoPaterno = row[2].ToString();

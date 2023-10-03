@@ -65,7 +65,7 @@ namespace SLWebAPI.Controllers
 
         [Route("{idEmpresa?}/{nombreEmpleado?}")]
         [HttpGet]
-        public IHttpActionResult GetAll(int? idEmpresa, string nombreEmpleado)
+        public IHttpActionResult GetAll(int? idEmpresa, string nombreEmpleado) //puede ser la validacion de abajo o desde aqui hacerlo (int? idEmpresa = 0)
         {
             ML.Empleado empleado = new ML.Empleado();
             empleado.Empresa = new ML.Empresa();
